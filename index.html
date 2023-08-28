@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Title Goes Here</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+
+    <!-- Tailwind & Daisy UI CDN link -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.4.0/dist/full.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Customised Utilities -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "blue": "#0D6EFD",
+                    },
+                },
+                fontFamily: {
+                    'poppins': ['Poppins', 'sans-serif'],
+                },
+                container: {
+                    center: true,
+                },
+            },
+        };
+    </script>
+
+    <!-- Google Fonts Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/d7b7563d24.js" crossorigin="anonymous"></script>
+</head>
+
+<body data-theme="light">
+    <header id="header-section" class="px-[150px] min-h-[calc(60vw)] bg-[#0D6EFD]/5">
+        <nav class="navbar py-12">
+            <div class="navbar-start">
+                <a class="btn btn-ghost normal-case text-2xl leading-7 text-[#403F3F] font-black">Hot Gadgets</a>
+            </div>
+            <div class="navbar-end">
+                <a class="btn btn-lg bg-blue text-white font-bold text-xl capitalize">Sign Up</a>
+            </div>
+        </nav>
+        <section class="flex flex-col items-center">
+            <h1 class="text-[65px] font-bold">Apple Iphone 13 Pro Max</h1>
+            <p class="text-lg text-[#706F6F] leading-8 max-w-4xl text-center my-6">There are many variations of passages
+                of Lorem Ipsum available, but the
+                majority have suffered alteration in some form, by injected humou.</p>
+            <button class="btn btn-lg bg-blue text-white font-bold text-xl capitalize">Buy Now</button>
+        </section>
+    </header>
+    <main>
+        <section class="relative -mt-[25vw] w-full">
+            <img class="mx-auto max-w-[60vw]" src="./assets/banner-image.png" alt="banner-image">
+        </section>
+        <!-- <button onclick="createAPost()" class="btn">Create A Post</button>
+        <button onclick="deleteAPost()" class="btn">Delete A Posts</button>
+        <button onclick="patchAPost()" class="btn">Update A Posts</button> -->
+
+        <!-- <section id="posts" class="mx-auto px-5 flex flex-col gap-4 my-3"></section>
+        <section id="users" class="mx-auto px-5 grid grid-cols-4 gap-4 my-3"></section>
+        <section id="comments" class="mx-auto px-5 flex flex-col gap-8 my-3"></section> -->
+
+        <h2 class="text-4xl font-semibold text-center">Search your phone</h2>
+        <div id="searchHere" class="mx-auto max-w-xl flex items-center mb-12 mt-7">
+            <i class="fa fa-search -mr-10 z-50"></i>
+            <input class="w-full rounded-lg text-base leading-7 text-gray-500 bg-gray-100 ps-14 py-4" type="search"
+                name="search" id="Search" placeholder="Search your phone"><button onclick="searchHandle()"
+                class="btn btn-lg border-0 bg-blue text-white -ml-[calc(48px+66.781px)]">Search</button>
+        </div>
+
+        <!-- search result -->
+        <section class="pb-[120px]">
+            <!-- loader -->
+            <div id="loader" class="hidden items-center justify-center min-h-[calc(100vh-300px)]"><span
+                    class="loading loading-spinner loading-lg text-blue"></span></div>
+
+            <!-- searched phones -->
+            <div id="phone-section"
+                class="px-[150px] font-poppins grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5"></div>
+
+            <!-- Show all button -->
+            <div id="showAllContainer" class="text-center mt-6 hidden">
+                <a class="btn btn-lg bg-blue text-white font-bold text-xl capitalize" onclick="showAllToggle()">Show
+                    All</a>
+            </div>
+
+            <!-- Modal -->
+            <dialog id="details" class="modal">
+                <form method="dialog" class="modal-box max-w-2xl">
+                    <div id="information" class="card card-compact bg-base-100 p-5"></div>
+                </form>
+            </dialog>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-h-screen bg-[#0D6EFD]/5">
+        <section class="px-[150px] py-[120px]">
+            <div class="footer flex justify-between">
+                <div>
+                    <h2 class="font-bold text-[45px] text-[#100F0F] mb-5">Hot Gadgets</h2>
+                    <p class="text-[#706F6F] font-semibold text-lg leading-8">You can definitely work.</p>
+                </div>
+                <div class="flex items-center justify-end gap-4">
+                    <div class="grid grid-flow-col gap-4 items-center">
+                        <a class="p-3 rounded-full text-blue bg-white text-xs"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+                                <path
+                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
+                                </path>
+                            </svg></a>
+                        <a class="p-3 rounded-full text-red-500 bg-white text-xs"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                class="fill-current">
+                                <path
+                                    d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z">
+                                </path>
+                            </svg></a>
+                        <a class="p-3 rounded-full text-blue bg-white text-xs"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+                                <path
+                                    d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z">
+                                </path>
+                            </svg></a>
+                    </div>
+                    <a class="btn btn-lg bg-blue text-white font-bold text-xl capitalize">Join Premium</a>
+                </div>
+            </div>
+            <hr class="my-12 bg-gray-300">
+            <div class="footer flex justify-between text-[#403F3F] text-xl">
+                <div class=" leading-[50px]">
+                    <a class="link link-hover">Product</a>
+                    <a class="link link-hover">Browse jobs</a>
+                    <a class="link link-hover">Remote jobs</a>
+                    <a class="link link-hover">Startup jobs</a>
+                    <a class="link link-hover">Company jobs</a>
+                </div>
+                <div class=" leading-[50px]">
+                    <a class="link link-hover">Popular</a>
+                    <a class="link link-hover">UIUX Design</a>
+                    <a class="link link-hover">Product Design</a>
+                    <a class="link link-hover">Back-End Developer</a>
+                    <a class="link link-hover">Front-End Developer</a>
+                </div>
+                <div class=" leading-[50px]">
+                    <a class="link link-hover">Resource</a>
+                    <a class="link link-hover">Faq</a>
+                    <a class="link link-hover">Support</a>
+                    <a class="link link-hover">Privacy Policy</a>
+                    <a class="link link-hover">Terms of Service</a>
+                </div>
+                <div class=" leading-[50px]">
+                    <a class="link link-hover">Company</a>
+                    <a class="link link-hover">About Us</a>
+                    <a class="link link-hover">Contact Us</a>
+                    <a class="link link-hover">Career Tips</a>
+                    <a class="link link-hover">Careers</a>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+    <script src="./js/fetch.js"></script>
+</body>
+
+</html>
